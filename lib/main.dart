@@ -5,7 +5,14 @@ void main() {
     home: Bigcard(),
   ));
 }
-class Bigcard extends StatelessWidget {
+class Bigcard extends StatefulWidget {
+  @override
+  State<Bigcard> createState() => _BigcardState();
+}
+
+class _BigcardState extends State<Bigcard> {
+  int NinjaLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold (
@@ -15,6 +22,11 @@ class Bigcard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[700],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -58,7 +70,7 @@ class Bigcard extends StatelessWidget {
             ),
             SizedBox(height: 10.0,), // a good way to separate and space things
             Text(
-              '10',
+              '$NinjaLevel',
               style: TextStyle(
                 color: Colors.amberAccent,
                 letterSpacing: 2.0,
@@ -91,6 +103,92 @@ class Bigcard extends StatelessWidget {
   }
 }
 
+
+// class Bigcard extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold (
+//       backgroundColor: Colors.grey[900],
+//       appBar: AppBar(
+//         title: Text("Huduma card"),
+//         centerTitle: true,
+//         backgroundColor: Colors.grey[850],
+//         elevation: 0.0,
+//       ),
+//       body: Padding(
+//         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Center(
+//               child: CircleAvatar(
+//                 backgroundImage: AssetImage("assets/alessi.jpg"),
+//                 radius: 30.0,
+//               ),
+//             ),
+//             Divider(
+//               height: 60.0,
+//               color: Colors.grey[800],
+//             ),
+//             Text(
+//               'NAME',
+//               style: TextStyle(
+//                 color: Colors.grey,
+//                 letterSpacing: 2.0,
+//               ),
+//             ),
+//             SizedBox(height: 10.0,), // a good way to separate and space things
+//             Text(
+//               'Edwin-Atieno',
+//               style: TextStyle(
+//                 color: Colors.amberAccent,
+//                 letterSpacing: 2.0,
+//                 fontSize: 20.0,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//             SizedBox(height: 30.0,),
+//             Text(
+//               'CURRENT LEVEL',
+//               style: TextStyle(
+//                 color: Colors.grey,
+//                 letterSpacing: 2.0,
+//               ),
+//             ),
+//             SizedBox(height: 10.0,), // a good way to separate and space things
+//             Text(
+//               '10',
+//               style: TextStyle(
+//                 color: Colors.amberAccent,
+//                 letterSpacing: 2.0,
+//                 fontSize: 20.0,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//             SizedBox(height: 30.0,),
+//             Row(
+//               children: [
+//                 Icon(
+//                   Icons.email,
+//                   color: Colors.grey[400],
+//                 ),
+//                 SizedBox(width: 10.0,),
+//                 Text(
+//                   "EDDYATS11@GMAIL.COM",
+//                    style: TextStyle(
+//                      color: Colors.grey[400],
+//                      fontSize: 18.0,
+//                      letterSpacing: 1.0,
+//                    ),
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// },
 //class Home extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
