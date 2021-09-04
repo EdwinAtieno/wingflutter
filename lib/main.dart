@@ -2,108 +2,144 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Bigcard(),
+    home: Quotelist(),
   ));
 }
-class Bigcard extends StatefulWidget {
+class Quotelist extends StatefulWidget {
   @override
-  State<Bigcard> createState() => _BigcardState();
+  _QuotelistState createState() => _QuotelistState();
 }
 
-class _BigcardState extends State<Bigcard> {
-  int NinjaLevel = 0;
-
+class _QuotelistState extends State<Quotelist> {
+  List<String> quotes = [
+  "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+  "That which does not kill us makes us stronger.",
+  "Be who you are and say what you feel, because those who mind don’t matter and those who matter don’t mind."
+  ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
-      backgroundColor: Colors.grey[900],
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("Huduma card"),
+        title: Text("Awsome Quotes"),
         centerTitle: true,
-        backgroundColor: Colors.grey[850],
-        elevation: 0.0,
+        backgroundColor: Colors.redAccent,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        child: Icon(Icons.add),
-        backgroundColor: Colors.grey[700],
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage("assets/alessi.jpg"),
-                radius: 30.0,
-              ),
-            ),
-            Divider(
-              height: 60.0,
-              color: Colors.grey[800],
-            ),
-            Text(
-              'NAME',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0,), // a good way to separate and space things
-            Text(
-              'Edwin-Atieno',
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 2.0,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30.0,),
-            Text(
-              'CURRENT LEVEL',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(height: 10.0,), // a good way to separate and space things
-            Text(
-              '$NinjaLevel',
-              style: TextStyle(
-                color: Colors.amberAccent,
-                letterSpacing: 2.0,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30.0,),
-            Row(
-              children: [
-                Icon(
-                  Icons.email,
-                  color: Colors.grey[400],
-                ),
-                SizedBox(width: 10.0,),
-                Text(
-                  "EDDYATS11@GMAIL.COM",
-                   style: TextStyle(
-                     color: Colors.grey[400],
-                     fontSize: 18.0,
-                     letterSpacing: 1.0,
-                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
+      body: Column(
+        children: quotes.map((quote) {
+          return Text(quote);
+        }).toList(),
       ),
     );
   }
 }
 
 
+
+
+//class Bigcard extends StatefulWidget {
+//   @override
+//   State<Bigcard> createState() => _BigcardState();
+// }
+//
+// class _BigcardState extends State<Bigcard> {
+//   int NinjaLevel = 0;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold (
+//       backgroundColor: Colors.grey[900],
+//       appBar: AppBar(
+//         title: Text("Huduma card"),
+//         centerTitle: true,
+//         backgroundColor: Colors.grey[850],
+//         elevation: 0.0,
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: (){
+//           setState(() {
+//             NinjaLevel +=1;
+//           });
+//         },
+//         child: Icon(Icons.add),
+//         backgroundColor: Colors.grey[700],
+//       ),
+//       body: Padding(
+//         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Center(
+//               child: CircleAvatar(
+//                 backgroundImage: AssetImage("assets/alessi.jpg"),
+//                 radius: 30.0,
+//               ),
+//             ),
+//             Divider(
+//               height: 60.0,
+//               color: Colors.grey[800],
+//             ),
+//             Text(
+//               'NAME',
+//               style: TextStyle(
+//                 color: Colors.grey,
+//                 letterSpacing: 2.0,
+//               ),
+//             ),
+//             SizedBox(height: 10.0,), // a good way to separate and space things
+//             Text(
+//               'Edwin-Atieno',
+//               style: TextStyle(
+//                 color: Colors.amberAccent,
+//                 letterSpacing: 2.0,
+//                 fontSize: 20.0,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//             SizedBox(height: 30.0,),
+//             Text(
+//               'CURRENT LEVEL',
+//               style: TextStyle(
+//                 color: Colors.grey,
+//                 letterSpacing: 2.0,
+//               ),
+//             ),
+//             SizedBox(height: 10.0,), // a good way to separate and space things
+//             Text(
+//               '$NinjaLevel',
+//               style: TextStyle(
+//                 color: Colors.amberAccent,
+//                 letterSpacing: 2.0,
+//                 fontSize: 20.0,
+//                 fontWeight: FontWeight.bold,
+//               ),
+//             ),
+//             SizedBox(height: 30.0,),
+//             Row(
+//               children: [
+//                 Icon(
+//                   Icons.email,
+//                   color: Colors.grey[400],
+//                 ),
+//                 SizedBox(width: 10.0,),
+//                 Text(
+//                   "EDDYATS11@GMAIL.COM",
+//                    style: TextStyle(
+//                      color: Colors.grey[400],
+//                      fontSize: 18.0,
+//                      letterSpacing: 1.0,
+//                    ),
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+//
 // class Bigcard extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
