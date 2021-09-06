@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -11,11 +13,18 @@ class Quotelist extends StatefulWidget {
 }
 
 class _QuotelistState extends State<Quotelist> {
-  List<String> quotes = [
-  "Live as if you were to die tomorrow. Learn as if you were to live forever.",
-  "That which does not kill us makes us stronger.",
-  "Be who you are and say what you feel, because those who mind don’t matter and those who matter don’t mind."
+  List<Quote> quotes = [
+    Quote(text: "Learn as if you were to live forever.", author: 'J.Smith'),
+    Quote(text: "That which does not kill us makes us stronger.", author: 'big man'),
+    Quote(text: "Be who you are and say what you feel.", author: 'man pigie'),
   ];
+
+  Widget quoteTemplate(quote){
+    // creating a card widget to display quotes
+    return QuoteCard(quote: quote);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +35,44 @@ class _QuotelistState extends State<Quotelist> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) {
-          return Text(quote);
-        }).toList(),
+        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+      ),
+    );
+  }
+}
+
+class QuoteCard extends StatelessWidget {
+  final Quote quote;
+  QuoteCard({required this.quote});
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 10),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              quote.text,
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.grey[600]
+              ),
+            ),
+            SizedBox(height: 6.0),
+            Text(
+              quote.author,
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Colors.grey[800]
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
